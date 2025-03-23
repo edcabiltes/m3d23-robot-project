@@ -1,5 +1,6 @@
 import { VillageState } from "./models/villageState.js";
 import { randomRobot } from "./robots/randomRobot.js";
+import { routeRobot } from "./robots/routeRobot.js";
 
 function runRobot(state, robot, memory = []) {
     for (let turn = 0; ; turn++) {
@@ -14,5 +15,8 @@ function runRobot(state, robot, memory = []) {
     }
 }
 
-console.log("Running randomRobot");
+console.log("RUNNING randomRobot");
 runRobot(VillageState.random(), randomRobot);
+
+console.log("RUNNING routeRobot");
+runRobot(VillageState.random(), routeRobot);
