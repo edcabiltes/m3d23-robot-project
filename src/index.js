@@ -1,4 +1,5 @@
 import { VillageState } from "./models/villageState.js";
+import { goalOrientedRobot } from "./robots/goalOrientedRobot.js";
 import { randomRobot } from "./robots/randomRobot.js";
 import { routeRobot } from "./robots/routeRobot.js";
 
@@ -20,3 +21,6 @@ runRobot(VillageState.random(), randomRobot);
 
 console.log("RUNNING routeRobot");
 runRobot(VillageState.random(), routeRobot);
+
+console.log("RUNNING goalOrientedRobot");
+runRobot(VillageState.random(), goalOrientedRobot);
