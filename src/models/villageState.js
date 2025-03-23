@@ -20,18 +20,38 @@ export class VillageState {
             return new VillageState(destination, parcels);
         }
     }
+
+    static random(parcelCount = 5) {
+        let parcels = [];
+        let places = Object.keys(roadGraph);
+
+        for (let i = 0; i < parcelCount; i++) {
+            let address = randomPick(places);
+            let place;
+            do {
+                place = randomPick(places);
+            } while (place == address);
+            parcels.push({ place, address });
+        }
+        return new VillageState("Post Office", parcels);
+    }
 };
 
-let first = new VillageState(
-    "Post Office",
-    [{ place: "Post Office", address: "Alice's House" }]
-);
+export function randomPick(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
 
-let next = first.move("Alice's House");
 
-console.log(next.place);
-// → Alice's House
-console.log(next.parcels);
-// → []
-console.log(first.place);
-// → Post Office
+// let first = new VillageState(
+//     "Post Office",
+//     [{ place: "Post Office", address: "Alice's House" }]
+// );
+
+// let next = first.move("Alice's House");
+
+// console.log(next.place);
+// // → Alice's House
+// console.log(next.parcels);
+// // → []
+// console.log(first.place);
+// // → Post Office
